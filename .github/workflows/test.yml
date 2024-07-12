@@ -16,8 +16,7 @@ jobs:
 
       - name: Check TEMP directory permissions
         run: |
-          ls -ld $env:TEMP
-          chmod 777 $env:TEMP  # This is for Linux; adjust accordingly if on a different OS
+          [System.IO.Path]::GetTempPath()
 
       - name: Authenticate to Azure
         uses: azure/login@v2
