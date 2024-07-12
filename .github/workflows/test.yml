@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
+  deploy-powershell-modules:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
