@@ -10,13 +10,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: print working dir
-        run: |
-          pwd
-          get-childitem -directory -recurse
-
-        shell: pwsh
-
       - name: Deploy PowerShell Modules to Azure Storage
         uses: ethorneloe/deploy-ps-modules-to-azure-storage@main
         with:
