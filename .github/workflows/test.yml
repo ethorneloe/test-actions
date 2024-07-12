@@ -1,3 +1,5 @@
+name: Test Deployment
+
 on:
   workflow_dispatch:
 
@@ -17,8 +19,4 @@ jobs:
           resource-group-name: ${{ secrets.AZURE_RESOURCE_GROUP_NAME }}
           storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
           storage-account-container-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
-          repo-powershell-module-path: './powershell/modules'
-        
-
-
-  
+          repo-powershell-module-path: "./powershell/modules"
