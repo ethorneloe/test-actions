@@ -23,14 +23,10 @@ jobs:
           #enable-AzPSSession: true
 
       - name: Test AzCopy login
+        env:
+          AZURE_STORAGE_ACCOUNT_NAME: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+          AZURE_STORAGE_ACCOUNT_CONTAINER_NAME: ${{ env.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
         run: |
           $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
-          azcopy login
+          azcopy copy './powershell/modules/CustomModule' 'https://$AZURE_STORAGE_ACCOUNT_NAME.blob.core.windows.net/$AZURE_STORAGE_ACCOUNT_CONTAINER_NAME'
         shell: pwsh
-
-      #- name: Deploy PowerShell Modules to Azure Storage
-      #  uses: ethorneloe/deploy-ps-modules-to-azure-storage@main
-      #  with:
-      #   storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
-      #   storage-account-container-name: ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
-      #   repo-powershell-module-path: "./powershell/modules"
