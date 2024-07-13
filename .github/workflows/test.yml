@@ -36,5 +36,5 @@ jobs:
           $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
           $Env:AZCOPY_TENANT_ID=$tenantId
           pwd
-          azcopy copy "./powershell/modules/" "https://$storageAccountName.blob.core.windows.net/$storageAccountContainerName/modules" --overwrite=false --recursive=true
+          azcopy copy "./powershell/modules/" "https://$storageAccountName.blob.core.windows.net/$storageAccountContainerName" --overwrite=false --recursive=true
         shell: pwsh
