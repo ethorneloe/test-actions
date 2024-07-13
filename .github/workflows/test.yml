@@ -21,20 +21,10 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Test AzCopy login
-        env:
-          AZURE_STORAGE_ACCOUNT_NAME: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
-          AZURE_STORAGE_ACCOUNT_CONTAINER_NAME: ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          
-        run: |
-          
-          $storageAccountName = '${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}'
-          $storageAccountContainerName = '${{ secrets.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}'
-          $tenantId = '${{ secrets.AZURE_TENANT_ID }}'
-        
-          $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
-          $Env:AZCOPY_TENANT_ID=$tenantId
-          pwd
-          azcopy copy "./powershell/modules/" "https://$storageAccountName.blob.core.windows.net/$storageAccountContainerName" --overwrite=false --recursive=true
-        shell: pwsh
+      - name: Deploy PowerShell Modules to Azure Storage
+        uses: ethorneloe/deploy-ps-modules-to-azure-storage@main
+        with:
+          storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
+          storage-account-container-name: ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          repo-powershell-module-path: "./powershell/modules"
