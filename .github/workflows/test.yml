@@ -26,6 +26,7 @@ jobs:
         run: |
           $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
           azcopy login
+        shell: pwsh
 
       #- name: Deploy PowerShell Modules to Azure Storage
       #  uses: ethorneloe/deploy-ps-modules-to-azure-storage@main
