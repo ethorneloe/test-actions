@@ -29,6 +29,6 @@ jobs:
           
         run: |
           $Env:AZCOPY_AUTO_LOGIN_TYPE="AZCLI"
-          $Env:AZCOPY_TENANT_ID=$AZURE_TENANT_ID
-          azcopy copy './powershell/modules/*' 'https://$AZURE_STORAGE_ACCOUNT_NAME.blob.core.windows.net/$AZURE_STORAGE_ACCOUNT_CONTAINER_NAME/modules' --overwrite=false
+          $Env:AZCOPY_TENANT_ID="$AZURE_TENANT_ID"
+          azcopy copy "./powershell/modules/*" "https://$AZURE_STORAGE_ACCOUNT_NAME.blob.core.windows.net/$AZURE_STORAGE_ACCOUNT_CONTAINER_NAME/modules" --overwrite=false
         shell: pwsh
