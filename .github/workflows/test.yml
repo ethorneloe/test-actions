@@ -27,4 +27,5 @@ jobs:
           storage-account-name: ${{ secrets.AZURE_STORAGE_ACCOUNT_NAME }}
           storage-account-container-name: ${{ vars.AZURE_STORAGE_ACCOUNT_CONTAINER_NAME }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          overwrite: true
           repo-powershell-module-path: "./powershell/modules"
