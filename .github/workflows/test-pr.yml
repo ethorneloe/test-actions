@@ -1,0 +1,19 @@
+name: PowerShell Composite Action CI
+
+on:
+  workflow_dispatch:
+  
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run script
+        run: |
+          write-host "Test"
+        shell: pwsh
