@@ -1,0 +1,13 @@
+name: Test Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-powershell-modules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run pwsh
+        run: |
+          Get-PSResource -Name 'Microsoft.PowerShell.PSResourceGet'
+        shell: pwsh
