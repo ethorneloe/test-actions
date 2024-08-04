@@ -23,7 +23,7 @@ jobs:
           enable-AzPSSession: true
 
       - name: Deploy PowerShell Modules to ACR
-        uses: ethorneloe/deploy-ps-modules-to-acr@main
+        uses: ethorneloe/deploy-ps-modules-to-acr@v1
         with:
           acr-name: ${{ secrets.AZURE_CONTAINER_REGISTRY_NAME}}
           resource-group-name: ${{ secrets.AZURE_RESOURCE_GROUP_NAME}}
