@@ -13,13 +13,13 @@
     GUID              = 'e8fe7c56-c89c-4937-94b0-f6f32d8b4534'
 
     # Author of this module
-    Author            = ''
+    Author            = 'Eric'
 
     # Company or vendor of this module
     CompanyName       = ''
 
     # Description of the functionality provided by this module
-    Description       = ''
+    Description       = 'Testing'
 
     # Minimum version of the Windows PowerShell engine required by this module
     # PowerShellVersion = ''
