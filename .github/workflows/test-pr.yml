@@ -18,3 +18,11 @@ jobs:
         run: |
           write-host "Test"
         shell: pwsh
+  job2:
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - name: run script 2
+        run: |
+          write-host "Test2"
+        shell: pwsh
