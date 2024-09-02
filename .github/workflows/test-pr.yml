@@ -20,7 +20,7 @@ jobs:
         shell: pwsh
   job2:
     runs-on: ubuntu-latest
-    environment: test
+    environment: test2
     steps:
       - name: run script 2
         run: |
