@@ -12,7 +12,7 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    environment: test
+    environment: prod-plan
     steps:
       - name: run script
         run: |
@@ -20,7 +20,7 @@ jobs:
         shell: pwsh
   job2:
     runs-on: ubuntu-latest
-    environment: test2
+    environment: prod-apply
     steps:
       - name: run script 2
         run: |
