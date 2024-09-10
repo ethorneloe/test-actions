@@ -1,4 +1,4 @@
-Name: Test ternary operator on environment field
+name: Test ternary operator on environment field
 # Triggering conditions for the workflow
 on:
   # Manual trigger with an input to specify the environment
