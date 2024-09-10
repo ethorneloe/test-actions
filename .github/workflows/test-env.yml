@@ -1,0 +1,26 @@
+Name: Test ternary operator on environment field
+# Triggering conditions for the workflow
+on:
+  # Manual trigger with an input to specify the environment
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target Environment"
+        required: true
+        default: "dev"
+        type: environment
+
+jobs:
+  execute-job:
+    runs-on: ubuntu-latest
+    environment: ${{ (github.event.inputs.environment == 'prod' && 'apply') || github.event.inputs.environment }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Script
+        run: |
+          write-output "Deploying to ${{ (github.event.inputs.environment == 'prod' && 'apply') || github.event.inputs.environment }}"
+
+        shell: pwsh
