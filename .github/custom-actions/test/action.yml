@@ -1,11 +1,16 @@
 name: "test"
 description: "Test"
 
+inputs:
+  deploy-env:
+    description: "Name of the Automation Account"
+    required: true
+
 runs:
   using: "composite"
   steps:
     - name: "Deploy changed PowerShell modules"
       shell: pwsh
       run: |
-        $en = '${{ github.job.environment }}'
+        $en = '${{ inputs.deploy-env }}'
         write-output $en
