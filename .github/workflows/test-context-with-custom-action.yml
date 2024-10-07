@@ -5,6 +5,8 @@ on:
 
 jobs:
   deploy_test:
+    env:
+      DEPLOY_ENV: production  # Define the environment variable here
     name: deploy_test
     runs-on: ubuntu-latest
     environment: 'test'
@@ -14,9 +16,5 @@ jobs:
 
       - name: Test context - custom action
         uses: ./.github/custom-actions/test
-
-      - name: Get job name
-        run: |
-          # Both work:
-          echo "Job name is $GITHUB_JOB"
-          echo "How about ${{ github.jobs.deploy_test.name }}"
+        with:
+          environment: ${{ env.DEPLOY_ENV }}  # Corrected to use the env context
