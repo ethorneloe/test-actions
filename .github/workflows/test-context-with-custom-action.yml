@@ -17,4 +17,4 @@ jobs:
       - name: Test context - custom action
         uses: ./.github/custom-actions/test
         with:
-          environment: ${{ env.DEPLOY_ENV }}  # Corrected to use the env context
+          deploy-env: ${{ env.DEPLOY_ENV }}  # Corrected to use the env context
