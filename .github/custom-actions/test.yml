@@ -1,0 +1,10 @@
+name: "test context in custom action"
+description: "Test"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Deploy changed PowerShell modules"
+      shell: pwsh
+      run: |
+        write-output '${{ github.job.environment }}'
