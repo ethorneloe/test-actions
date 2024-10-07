@@ -17,4 +17,4 @@ jobs:
 
       - name: Test context - job step
         shell: pwsh
-        run: write-output '${{ github.jobs.deploy_test.name }}'
+        run: write-output '${{ github.jobs[github.job].name }}'
