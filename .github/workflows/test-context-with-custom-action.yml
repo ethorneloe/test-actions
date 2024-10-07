@@ -6,9 +6,14 @@ on:
 jobs:
   deploy_test:
     runs-on: ubuntu-latest
+    environment: 'test'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Test context
+      - name: Test context - custom action
         uses: ./.github/custom-actions/test
+
+      - name: Test context - job step
+        shell: pwsh
+        run: write-output '{{ github.job.environment }}'
