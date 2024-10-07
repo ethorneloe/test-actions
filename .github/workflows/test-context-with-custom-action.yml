@@ -16,4 +16,4 @@ jobs:
 
       - name: Test context - job step
         shell: pwsh
-        run: write-output '{{ github.job.environment }}'
+        run: write-output '${{ github.job.environment }}'
