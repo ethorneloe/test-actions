@@ -5,6 +5,7 @@ on:
 
 jobs:
   deploy_test:
+    name: deploy_test
     runs-on: ubuntu-latest
     environment: 'test'
     steps:
