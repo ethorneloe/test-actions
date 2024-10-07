@@ -11,4 +11,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Test context
-        uses: ./custom-actions/test.yml
+        uses: ./.github/custom-actions/test.yml
